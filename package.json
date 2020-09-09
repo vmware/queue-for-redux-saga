@@ -1,0 +1,77 @@
+{
+  "name": "@vmw/queue-for-redux-saga",
+  "version": "0.1.0",
+  "description": "Run Redux-Sagas without a \"rootSaga\". Kill boilerplate. Split code.",
+  "author": "VMware, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vmware/queue-for-redux-saga/issues"
+  },
+  "homepage": "https://github.com/vmware/queue-for-redux-saga#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vmware/queue-for-redux-saga.git"
+  },
+  "keywords": [
+    "redux-saga",
+    "saga",
+    "code splitting",
+    "lazy load",
+    "redux toolkit"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/queue-for-redux-saga.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdx build",
+    "format": "prettier --write \"src/*.ts\" \"**/*.md\"",
+    "format:check": "prettier --list-different \"src/*.ts\" \"**/*.md\"",
+    "lint": "tsdx lint src",
+    "prepare": "npm run lint && npm run format:check && npm run test-coverage && npm run build",
+    "start": "tsdx watch",
+    "test": "tsdx test",
+    "test-coverage": "tsdx test --coverage",
+    "test-watch": "tsdx test --watch"
+  },
+  "peerDependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
+    "redux-saga": "^1.0.0"
+  },
+  "devDependencies": {
+    "@vmw/eslint-config-vmware-react": "0.1.0",
+    "@reduxjs/toolkit": "1.4.0",
+    "@types/jest": "26.0.13",
+    "husky": "4.3.0",
+    "redux-saga": "1.1.3",
+    "tsdx": "0.13.3",
+    "tslib": "2.0.1",
+    "typescript": "3.9.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint src"
+    }
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "sideEffects": false,
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/index.ts"
+    ]
+  }
+}
