@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://vmware.github.io/blog</id>
+    <title>Queue for Redux-Saga Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://vmware.github.io/blog"/>
+    <subtitle>Queue for Redux-Saga Blog</subtitle>
+    <icon>https://vmware.github.io/img/favicon.ico</icon>
+</feed>
