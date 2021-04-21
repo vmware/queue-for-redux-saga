@@ -26,9 +26,11 @@ export function configureSagaStore<S = any, A extends Action = AnyAction>(
 ): EnhancedStore<S, A> {
   const { middleware: middlewareParam } = options;
 
-  let baseMiddleware: MiddlewareArray<Middleware<{}, S>>;
+  let baseMiddleware: MiddlewareArray<Middleware<Record<string, any>, S>>;
   if (middlewareParam) {
-    baseMiddleware = middlewareParam as MiddlewareArray<Middleware<{}, S>>;
+    baseMiddleware = middlewareParam as MiddlewareArray<
+      Middleware<Record<string, any>, S>
+    >;
   } else {
     baseMiddleware = getDefaultMiddleware({ thunk: false });
   }
@@ -43,6 +45,7 @@ export function configureSagaStore<S = any, A extends Action = AnyAction>(
 
   setSagaRunner(sagaMiddleware);
 
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore todo
   return store;
 }

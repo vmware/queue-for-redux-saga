@@ -2,10 +2,7 @@
 id: configureSagaStore
 title: configureSagaStore
 sidebar_label: configureSagaStore
-hide_title: true
 ---
-
-# `configureSagaStore`
 
 `configureSagaStore` wraps the <a href="https://redux-toolkit.js.org/api/configureStore" target="_blank">"Redux ToolKit: configureStore"</a>.  
 The returned store will always have the Saga Middleware and by default will not have the Thunk Middleware.

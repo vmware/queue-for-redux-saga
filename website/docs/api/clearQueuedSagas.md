@@ -2,10 +2,7 @@
 id: clearQueuedSagas
 title: clearQueuedSagas
 sidebar_label: clearQueuedSagas
-hide_title: true
 ---
-
-# `clearQueuedSagas`
 
 Clears the queued Sagas.  
 Useful for writing Unit Tests.

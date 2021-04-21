@@ -16,7 +16,7 @@ describe('runSaga', () => {
   it('runSaga requires argument', () => {
     let error;
     try {
-      // @ts-ignore
+      // @ts-expect-error argument missing
       runSaga();
     } catch (e) {
       error = e;
