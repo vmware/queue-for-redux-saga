@@ -40,13 +40,14 @@ export function getQueuedSagas(): QueuedSaga[] {
  * @param sagaMiddleware The Saga Middleware instance used to
  * configure the Redux Store.
  */
-export function setSagaRunner(sagaMiddleware: null | SagaRunner) {
+export function setSagaRunner(sagaMiddleware: null | SagaRunner): void {
   sagaRunner = sagaMiddleware;
 
   if (sagaRunner) {
     queuedSagas.forEach((qSaga: QueuedSaga) => {
-      // @ts-ignore
-      sagaRunner.run(qSaga.saga, ...qSaga.args);
+      if (sagaRunner) {
+        sagaRunner.run(qSaga.saga, ...qSaga.args);
+      }
     });
     queuedSagas.length = 0;
   }
@@ -60,7 +61,8 @@ export function setSagaRunner(sagaMiddleware: null | SagaRunner) {
  * @param saga Saga generator function to be run.
  * @param ...args (Optional) - Arguments to be passed to the Saga.
  */
-export function runSaga(saga: any, ...args: any[]) {
+// eslint-disable-next-line
+export function runSaga(saga: any, ...args: any[]): void {
   if (!saga) {
     throw new Error('runSaga called with no argument');
   }

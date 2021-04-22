@@ -2,6 +2,20 @@
 // site configuration options.
 
 module.exports = {
+  presets: [
+    [
+      '@docusaurus/preset-classic',
+      {
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
+
   title: 'Queue for Redux-Saga',
   tagline:
     'Run Redux-Sagas without a "rootSaga". Kill boilerplate. Split code.',
@@ -16,8 +30,6 @@ module.exports = {
   projectName: 'queue-for-redux-saga',
 
   themeConfig: {
-    disableDarkMode: true,
-
     // Added
     prism: {
       theme: require('./src/js/monokaiTheme.js'),
@@ -29,7 +41,7 @@ module.exports = {
       //   alt: 'Queue for Redux-Saga Logo',
       //   src: 'img/queue-for-redux-saga-dark-logo.svg',
       // },
-      links: [
+      items: [
         {
           to: 'docs/introduction/quick-start',
           label: 'Quick Start',
@@ -84,26 +96,7 @@ module.exports = {
           ],
         },
       ],
-      // logo: {
-      //   alt: 'Facebook Open Source Logo',
-      //   src: 'https://docusaurus.io/img/oss_logo.png',
-      //   href: 'https://opensource.facebook.com/',
-      // },
       copyright: `Copyright © ${new Date().getFullYear()} VMware, Inc. and other contributors.`,
     },
   },
-
-  presets: [
-    [
-      '@docusaurus/preset-classic',
-      {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      },
-    ],
-  ],
 };

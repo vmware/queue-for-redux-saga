@@ -2,10 +2,7 @@
 id: setSagaRunner
 title: setSagaRunner
 sidebar_label: setSagaRunner
-hide_title: true
 ---
-
-# `setSagaRunner`
 
 **`setSagaRunner` is only needed when not using [`configureSagaStore`](/queue-for-redux-saga/docs/api/configureSagaStore).**
 

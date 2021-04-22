@@ -2,10 +2,7 @@
 id: getQueuedSagas
 title: getQueuedSagas
 sidebar_label: getQueuedSagas
-hide_title: true
 ---
-
-# `getQueuedSagas`
 
 Returns an array of queued Sagas.  
 Useful for writing Unit Tests.

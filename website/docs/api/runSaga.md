@@ -2,10 +2,7 @@
 id: runSaga
 title: runSaga
 sidebar_label: runSaga
-hide_title: true
 ---
-
-# `runSaga`
 
 Runs a saga, or adds it to the queued sagas to be run, once the Redux Store
 has been configured with a sagaMiddleware instance.

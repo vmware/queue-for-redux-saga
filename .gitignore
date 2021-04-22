@@ -7,8 +7,8 @@
 .rts2_cache_system
 .vscode
 dist
+lib
 node_modules
-yarn.lock
 
 # testing
 coverage
