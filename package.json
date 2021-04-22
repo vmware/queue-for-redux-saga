@@ -1,6 +1,6 @@
 {
   "name": "@vmw/queue-for-redux-saga",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0",
   "description": "Run Redux-Sagas without a \"rootSaga\". Kill boilerplate. Split code.",
   "author": "VMware, Inc",
   "license": "MIT",
