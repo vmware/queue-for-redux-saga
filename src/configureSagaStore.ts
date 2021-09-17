@@ -6,13 +6,14 @@ import {
   AnyAction,
   configureStore,
   ConfigureStoreOptions,
-  getDefaultMiddleware,
   EnhancedStore,
-  Middleware,
   MiddlewareArray,
 } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { setSagaRunner } from './runSaga';
+
+// type not exported by rtk
+type CurriedGetDefaultMiddleware = (options?: any) => MiddlewareArray<any>;
 
 /**
  * Wraps configureStore from Redux ToolKit and returns a store with
@@ -25,18 +26,21 @@ export function configureSagaStore<S = any, A extends Action = AnyAction>(
   options: ConfigureStoreOptions
 ): EnhancedStore<S, A> {
   const { middleware: middlewareParam } = options;
-
-  let baseMiddleware: MiddlewareArray<Middleware<Record<string, any>, S>>;
-  if (middlewareParam) {
-    baseMiddleware = middlewareParam as MiddlewareArray<
-      Middleware<Record<string, any>, S>
-    >;
-  } else {
-    baseMiddleware = getDefaultMiddleware({ thunk: false });
-  }
+  let middleware;
 
   const sagaMiddleware = createSagaMiddleware();
-  const middleware = [...baseMiddleware, sagaMiddleware];
+
+  if (middlewareParam) {
+    if (typeof middlewareParam === 'function') {
+      middleware = (getDefaultMiddleware: CurriedGetDefaultMiddleware) =>
+        middlewareParam(getDefaultMiddleware).concat(sagaMiddleware);
+    } else {
+      middleware = [...middlewareParam, sagaMiddleware];
+    }
+  } else {
+    middleware = (getDefaultMiddleware: CurriedGetDefaultMiddleware) =>
+      getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware);
+  }
 
   const store = configureStore({
     ...options,
