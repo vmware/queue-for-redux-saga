@@ -1,7 +1,6 @@
 /* Copyright 2020-2021 VMware, Inc.
  * SPDX-License-Identifier: MIT */
 
-import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import { configureSagaStore } from './configureSagaStore';
 
 describe('configureSagaStore', () => {
@@ -14,7 +13,8 @@ describe('configureSagaStore', () => {
   });
 
   it('accepts middleware', () => {
-    const middleware = getDefaultMiddleware();
+    const middleware = (getDefaultMiddleware: () => any[]) =>
+      getDefaultMiddleware();
     expect(configureSagaStore({ middleware, reducer })).toBeDefined();
   });
 });
