@@ -1,6 +1,6 @@
 {
   "name": "@vmw/queue-for-redux-saga",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Run Redux-Sagas without a \"rootSaga\". Kill boilerplate. Split code.",
   "author": "VMware, Inc",
   "license": "MIT",
@@ -67,7 +67,8 @@
   },
   "resolutions": {
     "immer": ">=9.0.6",
-    "path-parse": ">=1.0.7"
+    "path-parse": ">=1.0.7",
+    "minimist": "1.2.6"
   },
   "prettier": {
     "arrowParens": "always",
